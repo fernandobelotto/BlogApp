@@ -26,11 +26,12 @@ const Nav = () => {
     headerTintColor: '#FFF',
     headerRight: () =>
       (
-        <TouchableOpacity onPress={() => console.log(navigation.navigate('BlogCreate'))}>
+        <TouchableOpacity onPress={() => navigation.navigate('BlogCreate')}>
           <AntDesign name='pluscircleo' style={{ color: 'white', fontSize: 35, marginRight: 20 }} />
         </TouchableOpacity>
       )
   })
+
   const header3 = ({ navigation, route }) => ({
     headerStyle: {
       backgroundColor: '#189ad3'
@@ -38,7 +39,7 @@ const Nav = () => {
     headerTintColor: '#FFF',
     headerRight: () =>
       (
-        <TouchableOpacity onPress={() => navigation.navigate('BlogEdit', { id: route.params.id })}>
+        <TouchableOpacity onPress={() => navigation.navigate('EditScreen', { id: route.params.id })}>
           <Feather name='edit' style={{ color: 'white', fontSize: 35, marginRight: 20 }} />
         </TouchableOpacity>
       )
@@ -47,10 +48,10 @@ const Nav = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name='BlogApp' component={IndexScreen} options={header2} />
-        <Stack.Screen name='BlogView' component={ShowScreen} options={header3} />
+        <Stack.Screen name='IndexScreen' component={IndexScreen} options={header2} />
+        <Stack.Screen name='Show' component={ShowScreen} options={header3} />
         <Stack.Screen name='BlogCreate' component={CreateScreen} options={header} />
-        <Stack.Screen name='BlogEdit' component={EditScreen} options={header} />
+        <Stack.Screen name='EditScreen' component={EditScreen} options={header} />
       </Stack.Navigator>
     </NavigationContainer>
   )
